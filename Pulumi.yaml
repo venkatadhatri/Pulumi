@@ -1,0 +1,6 @@
+name: awsec2
+runtime:
+  name: python
+  options:
+    virtualenv: venv
+description: ls
