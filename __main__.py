@@ -2,13 +2,10 @@
 
 import pulumi
 import pulumi_aws as aws
+from myconfig import *
 
-size = 't2.micro'
-my_ami = 'ami-085925f297f89fce1'
-sg_group1 =  'sg-0f2285ec2dbcee3af'
-sg_group2 = 'sg-0371f43c89390a1ed'
-my_subnet = 'subnet-0a57be36cc1eaf5de'
-my_keyname = 'linux-ci'
+def get(name: 'allow-ssh',
+        vpc_id: 'vpc-098b4739cdfffa7ca') -> SecurityGroup
 
 server = aws.ec2.Instance("pulumi_test",
     instance_type=size,
@@ -17,7 +14,7 @@ server = aws.ec2.Instance("pulumi_test",
     subnet_id=my_subnet,
     key_name=my_keyname,
     tags={
-        "Name": "pulumi-test",
+        "Name": "pulumi-test-1",
     }
     )
 
